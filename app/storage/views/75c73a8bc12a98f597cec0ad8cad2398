@@ -1,0 +1,63 @@
+<?php $__env->startSection('customstyle'); ?>
+<?php echo HTML::style('admin/assets/select2-master/select2.css');; ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="row">
+    <div class="col-md-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb">
+            <li><a href="<?=URL::to('admin/inicio'); ?>"><i class="fa fa-home"></i> Inicio</a></li>
+            <li><a href="<?=URL::to('admin/clientes'); ?>"><i class="fa fa-gavel"></i> Clientes</a></li>
+            <li class="active">Crear</li>
+        </ul>
+        <!--breadcrumbs end -->
+    </div>
+</div>
+<header class="panel-heading wht-bg">
+   <h4 class="gen-case">Clientes</h4>
+</header>
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                CREAR
+            </header>
+            <div class="panel-body">
+                <div class="position-center">
+                    
+                    <?php if(Session::has('message_error')): ?>
+                    <div class="alert alert-error fade in">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <strong>Lo sentimos!</strong> El campo email ya se encuentra asignado a un cliente.
+                    </div>
+                    <?php endif; ?>
+
+                    <?php echo Form::open(array('route' => 'admin.clientes.store')); ?>
+
+                        <?php echo $__env->make('admin.clientes.partials.formcreate', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                        <button type="submit" class="btn btn-primary">Crear</button>
+                        <a href="<?php echo URL::route('admin.clientes.index'); ?>" class="btn btn-default">Cancelar</a>
+                    <?php echo Form::close(); ?>
+
+
+                </div>
+
+            </div>
+        </section>
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('customscript'); ?>
+<?php echo HTML::script('admin/assets/select2-master/select2.js');; ?>
+
+<?php echo HTML::script('admin/js/select2/select-init.js');; ?>
+
+<?php echo HTML::script('admin/assets/bootstrap-inputmask/bootstrap-inputmask.min.js');; ?>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layouts.base', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

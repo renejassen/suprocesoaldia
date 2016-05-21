@@ -1,0 +1,92 @@
+<div class="form-group <?php echo $errors->first('instancia_id', 'has-error'); ?>">
+    <?php echo Form::label('instancia_id', 'Instancia (Despacho)'); ?>
+
+    <?php /* <?php echo Form::select('instancia_id', $instancias, null, array('class' => 'form-control')); ?> */ ?>
+    <select id="instancia_id" name="instancia_id" class="populate" style="width:100%">
+      <option value="">Seleccionar</option>
+      <?php foreach($instancias as $instancia): ?>
+        <?php if($instancia->id === $actuacion->instancia_id): ?>
+        <option value="<?php echo $instancia->id; ?>" selected=""><?php echo Despacho::where('id',$instancia->despacho_id)->pluck('nombre'); ?></option>
+        <?php else: ?>
+        <option value="<?php echo $instancia->id; ?>"><?php echo Despacho::where('id',$instancia->despacho_id)->pluck('nombre'); ?></option>
+        <?php endif; ?>
+      <?php endforeach; ?>
+    </select>
+    <?php echo $errors->first('instancia_id', '<p class="help-block">:message</p>'); ?>
+
+</div>
+
+<div class="form-group <?php echo $errors->first('publicacion_id', 'has-error'); ?>">
+    <?php echo Form::label('publicacion_id', 'Tipo de publicación'); ?>
+
+    <?php echo Form::select('publicacion_id', $procesotipos = Publicacion::lists('tipo','id') , $actuacion->publicacion_id, array('id' => 'publicacion_id', 'class' => 'populate', 'style'  => 'width:100%')); ?>
+
+    <?php echo $errors->first('publicacion_id', '<p class="help-block">:message</p>'); ?>
+
+</div>
+
+<div class="form-group <?php echo $errors->first('fecha_publicacion', 'has-error'); ?>">
+  <?php echo Form::label('fecha_publicacion', 'Fecha de publicación'); ?>
+
+  <?php echo Form::text('fecha_publicacion', $actuacion->fecha_publicacion, array('readonly', 'class' => 'form-control form-control-inline input-medium default-date-picker', 'size' => '36')); ?>
+
+  <?php echo $errors->first('fecha_publicacion', '<p class="help-block">:message</p>'); ?>
+
+</div>
+
+<div class="form-group <?php echo $errors->first('fecha_auto', 'has-error'); ?>">
+  <?php echo Form::label('fecha_auto', 'Fecha de auto'); ?>
+
+  <?php echo Form::text('fecha_auto', $actuacion->fecha_auto, array('readonly', 'class' => 'form-control form-control-inline input-medium default-date-picker', 'size' => '36')); ?>
+
+  <?php echo $errors->first('fecha_auto', '<p class="help-block">:message</p>'); ?>
+
+</div>
+
+<div class="form-group <?php echo $errors->first('etapa_id', 'has-error'); ?>">
+    <?php echo Form::label('etapa_id', 'Etapa procesal'); ?>
+
+    <?php echo Form::select('etapa_id', $procesotipos = Etapa::lists('tipo','id') , $actuacion->etapa_id, array('id' => 'etapa_id', 'class' => 'populate', 'style'  => 'width:100%')); ?>
+
+    <?php echo $errors->first('etapa_id', '<p class="help-block">:message</p>'); ?>
+
+</div>
+
+<div class="form-group <?php echo $errors->first('actuacion_tipo_id', 'has-error'); ?>">
+    <?php echo Form::label('actuacion_tipo_id', 'Actuación'); ?>
+
+    <?php echo Form::select('actuacion_tipo_id', $procesotipos = ActuacionTipo::lists('tipo','id') , $actuacion->actuacion_tipo_id, array('id' => 'actuacion_tipo_id', 'class' => 'populate', 'style'  => 'width:100%')); ?>
+
+    <?php echo $errors->first('actuacion_tipo_id', '<p class="help-block">:message</p>'); ?>
+
+</div>
+
+<div class="form-group <?php echo $errors->first('resumen', 'has-error'); ?>">
+    <?php echo Form::label('resumen', 'Resumen de la actuación'); ?>
+
+    <?php echo Form::textarea('resumen', $actuacion->resumen, array('class' => 'form-control', 'rows' => '6')); ?>
+
+    <?php echo $errors->first('resumen', '<p class="help-block">:message</p>'); ?>
+
+</div>
+
+<div class="form-group <?php echo $errors->first('fecha_audiencia', 'has-error'); ?>">
+  <?php echo Form::label('fecha_audiencia', 'Fecha de audiencia'); ?>
+
+  <?php echo Form::text('fecha_audiencia', $actuacion->fecha_audiencia, array('readonly', 'class' => 'form_datetime form-control', 'size' => '36')); ?>
+
+  <?php echo $errors->first('fecha_audiencia', '<p class="help-block">:message</p>'); ?>
+
+</div>
+
+<div class="form-group <?php echo $errors->first('pdf', 'has-error'); ?>">
+    <?php echo Form::label('pdf', 'Auto (PDF)'); ?>
+
+    <?php echo Form::file('pdf'); ?>
+
+    <?php /* <p class="help-block">Seleccione el archivo PDF</p> */ ?>
+    <?php echo $errors->first('pdf', '<p class="help-block">:message</p>'); ?>
+
+</div>
+
+<?php echo Form::hidden('user_id', Auth::user()->id, array('id' => 'user_id')); ?>

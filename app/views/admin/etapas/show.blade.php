@@ -1,0 +1,1 @@
+/Applications/XAMPP/xamppfiles/htdocs/spad/app/views/proceso_tipos/show.blade.php

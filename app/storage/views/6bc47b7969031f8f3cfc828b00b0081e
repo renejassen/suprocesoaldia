@@ -1,0 +1,199 @@
+<?php $__env->startSection('customstyle'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="fullwidthbanner-container internas">
+    <div class="fullwidthbanner internas">
+
+        <ul>
+            <li data-transition="fade">
+
+                <img src="_content/index/slider/1920x547-1.jpg" alt="">
+
+                <h1 class="caption title sft"
+                    data-x="0"
+                    data-y="100"
+                    data-speed="700"
+                    data-start="1000"
+                    data-easing="easeOutBack">
+                    Nuestros <strong>Servicios</strong>
+                </h1>
+
+                <div class="caption text sfb"
+                    data-x="0"
+                    data-y="320"
+                    data-speed="700"
+                    data-start="1500"
+                    data-easing="easeOutBack">
+                    Suministramos servicios en el Campo Jurídico bajo los estándares <br>de calidad y confidencialidad requeridos.
+                </div>
+
+                <div class="caption icons-1 sfb"
+                    data-x="600"
+                    data-y="250"
+                    data-speed="700"
+                    data-start="1800"
+                    data-easing="easeOutBack">
+                    <span>
+                        <i class="ifc-smartphone_tablet"></i>
+                    </span>
+                </div>
+
+                <div class="caption icons-2 sfb"
+                    data-x="700"
+                    data-y="200"
+                    data-speed="700"
+                    data-start="2000"
+                    data-easing="easeOutBack">
+                    <span>
+                        <i class="ifc-date_to"></i>
+                    </span>
+                </div>
+
+                <div class="caption icons-3 sfb"
+                    data-x="800"
+                    data-y="150"
+                    data-speed="700"
+                    data-start="2200"
+                    data-easing="easeOutBack">
+                    <span>
+                        <i class="ifc-history"></i>
+                    </span>
+                </div>
+
+            </li>
+
+
+
+        </ul>
+
+        </div><!-- end .fullwidthbanner -->
+</div><!-- end .fullwidthbanner-container -->
+
+<div style="height: 60px;"></div>
+
+        <div class="row">
+        	<div class="span12">
+
+                <h3 class="headline">
+                	<span>AUDITORÍA DE PROCESOS JUDICIALES</span>
+                </h3>
+
+            </div><!-- end .span12 -->
+        </div><!-- end .row -->
+
+        <div class="row">
+        	<div class="span12">
+
+                <p>Este servicio le permite al <b>CLIENTE</b> hacer una <b>Auditoría</b> de
+                  sus procesos, consistente en el resumen minucioso de cada una
+                  de las <b>Etapas Procesales</b> y las actuaciones que la conforma,
+                  de cada uno de los procesos que el <b>CLIENTE</b> requiera.
+                  Este servicio es una herramienta profesional importante
+                  ya que les permite conocer el <b>Estado Actual</b> y Real de los
+                  procesos para tomar decisiones, evaluar los abogados externos,
+                  y/o evitar prescripciones, desistimientos tácitos, perención
+                  de los procesos  o archivo de sus expedientes.</p>
+
+
+            </div><!-- end span8 -->
+        </div><!-- end .row -->
+
+        <div class="row">
+        	<div class="span12">
+
+                <h3 class="headline-2">
+                	<span>Características principales</span>
+                </h3>
+
+            </div><!-- end .span12 -->
+        </div><!-- end .row -->
+
+        <div class="row">
+        	<div class="span6">
+
+                <div class="icon-box-1">
+
+                    <i class="ifc-variable"></i>
+
+                    <div class="icon-box-content">
+
+                        <h3>
+                            VERIFICACIÓN ESTADO
+                        </h3>
+
+                        <p>Herramienta importante cuando se reciben nuevos casos para verificar el estado procesal real en que
+                        se están recibiendo los mismos.</p>
+
+                    </div><!-- end .icon-box-content -->
+
+                </div><!-- end .icon-box-1 -->
+
+            </div><!-- end .span4 -->
+            <div class="span6">
+
+                <div class="icon-box-1">
+
+                    <i class="ifc-workflow"></i>
+
+                    <div class="icon-box-content">
+
+                        <h3>
+                            INFORMACIÓN CLARA
+                        </h3>
+
+                        <p>Información clara para toma decisiones procesales</p>
+
+                    </div><!-- end .icon-box-content -->
+
+                </div><!-- end .icon-box-1 -->
+
+            </div><!-- end .span4 -->
+        </div><!-- end .row -->
+
+        <div class="box" style="background-color: #00a0b1; margin-bottom: 0px;">
+
+            <div class="row">
+                <div class="span12">
+
+                    <div class="callout-box hidden-phone">
+
+                        <div class="row">
+                            <div class="span9">
+
+                                <div class="icon-box-1">
+
+                                    <i class="ifc-read_message"></i>
+
+                                    <div class="icon-box-content">
+
+                                        <h2>
+                                            <a href="contactenos">Esta interesado en <strong>ADQUIRIR NUESTROS SERVICIOS</strong></a>
+                                        </h2>
+
+                                        <p class="last hidden-tablet">Envíenos sus datos y consultor jurídico se comunicará con usted y le brindará toda la información necesaria.</p>
+
+                                    </div><!-- end .icon-box-content -->
+
+                                </div><!-- end .icon-box-1 -->
+
+                            </div><!-- end .span9 -->
+                            <div class="span3 text-right">
+
+                                <a class="btn btn-large btn-black" href="contactenos"><strong>Contáctenos</strong> Ahora</a>
+
+                            </div><!-- end .span3 -->
+                        </div><!-- end .row -->
+
+                    </div><!-- end .callout-box -->
+
+                </div><!-- end .span12 -->
+            </div><!-- end .row -->
+
+        </div><!-- end .box -->
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('customscript'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.base', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

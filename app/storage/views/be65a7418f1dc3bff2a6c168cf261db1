@@ -1,0 +1,35 @@
+<div class="form-group <?php echo $errors->first('cedula', 'has-error'); ?>">
+    <?php echo Form::label('cedula', 'Cédula'); ?>
+
+    <?php echo Form::text('cedula', $proceso->cedula, array('class' => 'form-control')); ?>
+
+    <?php echo $errors->first('cedula', '<p class="help-block">:message</p>'); ?>
+
+</div>
+
+<div class="form-group <?php echo $errors->first('obligacion', 'has-error'); ?>">
+    <?php echo Form::label('obligacion', 'Obligación'); ?>
+
+    <?php echo Form::text('obligacion', $proceso->obligacion, array('class' => 'form-control')); ?>
+
+    <?php echo $errors->first('obligacion', '<p class="help-block">:message</p>'); ?>
+
+</div>
+
+<div class="form-group <?php echo $errors->first('apoderado', 'has-error'); ?>">
+    <?php echo Form::label('apoderado', 'Apoderado'); ?>
+
+    <?php echo Form::text('apoderado', $proceso->apoderado, array('class' => 'form-control')); ?>
+
+    <?php echo $errors->first('apoderado', '<p class="help-block">:message</p>'); ?>
+
+</div>
+
+<div class="form-group <?php echo $errors->first('num_interno', 'has-error'); ?>">
+    <?php echo Form::label('num_interno', '# Interno'); ?>
+
+    <?php echo Form::text('num_interno', $proceso->num_interno, array('class' => 'form-control')); ?>
+
+    <?php echo $errors->first('num_interno', '<p class="help-block">:message</p>'); ?>
+
+</div>

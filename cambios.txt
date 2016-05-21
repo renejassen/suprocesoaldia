@@ -1,0 +1,62 @@
+Misión
+
+Somos una alternativa diferente en el sector de la vigilancia judicial de
+procesos, que le permitirá conocer en tiempo real los movimientos de los
+procesos de su interés. Nos diferenciamos por tener una plataforma tecnológica
+amigable y diversa que le asegurara que no perderá de vista el avance de sus
+procesos en los despacho judiciales del país. Ofrecemos compromiso, calidad,
+experiencia y tecnología de punta que evoluciona paulatinamente en busca de una
+mejor experiencia entre usted y los cambios de políticas procesales que se dan
+en la legislación Colombiana. (Nuevo código general del proceso)
+
+Visión
+Posicionarnos en el sector Jurídico como empresa líder prestadora de los
+servicios de vigilancia judicial de procesos, asistencia en audiencias,
+auditoría y control de procesos judiciales y administrativos; convirtiéndonos
+en un apoyo indispensable para nuestros Clientes llenando sus expectativas y
+estando prestos al surgimiento de nuevos servicios conforme a las necesidades y
+condiciones del mercado.
+
+
+En la parte de servicios, quitar  en donde ofrecen publicaciones virtuales a
+nivel nacional y reemplazar por Servicio de Revisión de procesos judiciales.
+
+Cuando esta la descripción de  PUBLICACIONES VIRTUALES A NIVEL NACIONAL, la reemplazamos por la siguiente:
+Supricesoaldia.com, revisará los despachos judiciales donde se encuentren los 
+procesos contratados, para hacer seguimiento de los mismos, garantizando el
+envío de la información en la medida en la que el proceso tenga novedades.
+Esta sería la descripción de nuevo ítem REVISION DE PROCESOS JUDICIALES.
+
+En la parte de VIGILANCIA Y CONTROL DE PROCESOS JURÍDICOS, reemplazar el texto por :
+“suprocesoaldia.com visitara diariamente los despachos judiciales donde se encuentren los procesos sugeridos para seguimiento, garantizando así que la información en la plataforma web y móvil se encuentre cargada. Los ESTADOS, TRASLADOS, EDICTOS DE SENTENCIA, EDICTOS EMPLAZATORIOS, AVISOS DE REMATE, FIJACIONES EN LISTA o cualquier otra información que sea requerida por parte del cliente tendrá a su vez, actualización de 24 horas, con su respectiva copia en PDF y soporte visual.
+En los municipios donde la revisión no sea diaria, la información será enviada el día de visita, informando todos los movimientos que existieron desde el ultimo día que se realizó la vigilancia. El horario de Visitas se puede visualizar en la cobertura adjunta.
+CONSULTE SU AGENDA VIRTUAL CON LA PROGRAMACION DE SUS AUDIENCIAS.”
+"UBICACIÓN, LEVANTAMIENTO DE INFORMACION Y DESARCHIVE como aparece en la pagina, debe reemplazarse por UBICACIÓN, LEVANTAMIENTO DE INFORMACION Y DESARCHIVE DE PROCESOS JUDICIALES y el texto debe reemplazarse por: Este servicio se ha desarrollado para clientes que necesitan UBICACIÓN DE PROCESOS en los diferentes despachos judiciales. A través de el se podrá identificar si su proceso se encuentra ACTIVO, INACTIVO, ARCHIVADO o TERMINADO y se informará del último movimiento notificado.
+“Este servicio le permite además, corroborar los datos del proceso, que generan una ventaja en la exactitud y en caso de ser necesaria, corrección de los mismos evitando cualquier tipo de vencimiento  en los términos. Además en esta modalidad de servicio se ofrece el Levantamiento de Información, consistente en verificar si existen procesos donde la Persona Natural o Jurídica de interés; sea Actor Procesal.
+El CLIENTE puede determinar cómo libre decisión, si realizamos la gestión de desarchive de los procesos que se reporten como archivados.
+FISCALIZACIÓN DE PROCESOS JUDICALES, debe reemplazarse por AUDITORIA DE PROESOS JUDICIALES y el texto debe reemplazarse por:
+“Este servicio le permite al CLIENTE hacer una Auditoria de sus procesos, consistente en el resumen minucioso de cada una de las Etapas Procesales y las actuaciones que la conforma,  de cada uno de los procesos que el CLIENTE requiera. Este servicio es una herramienta profesional importante ya que les permite conocer el Estado Actual y Real de los procesos para tomar decisiones, evaluar los abogados externos, y/o evitar prescripciones, desistimientos Tácitos, perención de los procesos  o archivo de sus expedientes.
+ACOMPAÑAMIENTO A AUDIENCIAS JUDICIALES Y EXTRAJUDUCIALES, debe cambiar el texto de descripción por:
+SUPROCESOALDIA.COM cuenta con Profesionales altamente calificados en las diferentes Ramas del Derecho, ubicados por el territorio nacional; con el fin de prestar a nuestros USUARIOS los Servicios de Asistencia a cualquiera de las audiencias programadas, donde nuestro CLIENTE no pueda asistir.
+RADICACION DE DOCUMENTOS EN DESPACHOS  debe reemplazarse por RADICACION DE DOCUMENTOS EN DESPACHOS JUDICIALES y el texto debe reemplazarse por:
+Oportunamente, con agilidad y eficacia, prestamos el servicio de Radicación de documentos (memoriales, demandas, tutelas) en los diferentes Despachos Judiciales de nuestra cobertura y entidades Administrativas (Procuradurías y Superintendencias).
+Como puntos en común para la realización de este servicio, el CLIENTE deberá entregar con antelación de 24 horas los documentos a radicar si estos son de términos y dentro de la ciudad de Bogotá. Cuando sean fuera de Bogotá se deben entregar con 72 horas de anterioridad al vencimiento.
+Si los documentos a radicar son de remisión vía E-mail, en archivo PDF, estos deben ser enviados con 24 horas de anticipación al día en el que se solicita radicar; Si es por fuera de Bogotá , debe ser enviado con 72 horas de anticipación a la fecha que se debe radicar.
+
+En COBERTURA incluir mapa con coordenadas y extraer el link en el home de servicios y dejarlo solo aparte. Las ciudades a incluir son:
+
+
+
+
+
+En contáctenos:
+Dir: calle 44 # 67 A 55 Salitre el Greco - Bogotá
+ Incluir con especificación: Móvil dirección comercial: 3214077576
+	               Móvil Coordinación administrativa: 3103175728
+Correos: info@suprocesoaldia.com – direccioncomercial@suprocesoaldia.com – asesorcomercial@suprocesoaldia.com
+
+En la parte de ingresar:
+
+
+Cambiar pantalla en blanco de inicio, puede incluir, fotografía o logo de la empresa.
+Incluir agenda virtual, que sea como un calendario, que se alimente con la información que cargan los dependientes.

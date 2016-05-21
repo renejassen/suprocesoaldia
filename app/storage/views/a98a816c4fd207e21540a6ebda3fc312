@@ -1,0 +1,17 @@
+<div class="form-group <?php echo $errors->first('nombre', 'has-error'); ?>">
+    <?php echo Form::label('nombre', 'Nombre'); ?>
+
+    <?php echo Form::text('nombre', $despacho->nombre, array('class' => 'form-control')); ?>
+
+    <?php echo $errors->first('nombre', '<p class="help-block">:message</p>'); ?>
+
+</div>
+
+<div class="form-group <?php echo $errors->first('rama_id', 'has-error'); ?>">
+    <?php echo Form::label('rama_id', 'Rama'); ?>
+
+    <?php echo Form::select('rama_id', $ramas = array('0' => 'Seleccionar') + Rama::lists('nombre', 'id') , $despacho->rama_id, array('id' => 'rama_id', 'class' => 'form-control m-bot15', 'style'  => 'width:100%')); ?>
+
+    <?php echo $errors->first('rama_id', '<p class="help-block">:message</p>'); ?>
+
+</div>

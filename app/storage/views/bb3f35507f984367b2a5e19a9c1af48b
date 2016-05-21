@@ -1,0 +1,8 @@
+<div class="form-group <?php echo $errors->first('nombre', 'has-error'); ?>">
+    <?php echo Form::label('nombre', 'Nombre'); ?>
+
+    <?php echo Form::text('nombre', $departamento->nombre, array('class' => 'form-control')); ?>
+
+    <?php echo $errors->first('nombre', '<p class="help-block">:message</p>'); ?>
+
+</div>

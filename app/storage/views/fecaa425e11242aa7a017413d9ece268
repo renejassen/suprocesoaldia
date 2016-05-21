@@ -1,0 +1,382 @@
+<?php $__env->startSection('customstyle'); ?>
+<?php echo HTML::style('admin/assets/select2-master/select2.css');; ?>
+
+<?php echo HTML::style('admin/assets/bootstrap-datepicker/css/datepicker.css');; ?>
+
+<?php echo HTML::style('admin/assets/bootstrap-switch-master/build/css/bootstrap3/bootstrap-switch.css');; ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="row">
+    <div class="col-md-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb">
+            <li><a href="<?=URL::to('admin/inicio'); ?>"><i class="fa fa-home"></i> Inicio</a></li>
+            <li><a href="<?=URL::to('admin/carteleras'); ?>"><i class="fa fa-columns"></i> Cartelera virtual</a></li>
+            <li class="active">Crear</li>
+        </ul>
+        <!--breadcrumbs end -->
+    </div>
+</div>
+<header class="panel-heading wht-bg">
+   <h4 class="gen-case">Cartelera virtual</h4>
+</header>
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                CREAR
+            </header>
+            <div class="panel-body">
+                <div class="position-center">
+                    
+                    <?php if(Session::has('message')): ?>
+                    <div class="alert alert-success fade in">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <strong>Bien hecho!</strong> cartelera creada.
+                    </div>
+                    <?php endif; ?>
+
+                    <?php if(Session::has('message_fail')): ?>
+                    <div class="alert alert-danger fade in">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <strong>Lo sentimos!</strong> debe seleccionar un archivo PDF.
+                    </div>
+                    <?php endif; ?>
+
+                    <?php echo Form::open(array('route' => array('admin.carteleras.store'), 'files' => 'true')); ?>
+
+                        <?php echo $__env->make('admin.carteleras.partials.formcreate', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                        <button type="submit" class="btn btn-primary">Crear</button>
+                        <?php echo Form::button('Crear Despacho', array(
+                                'onclick' =>    'showConfirmDeleteModal()',
+                                'class' => 'btn btn-success',
+                            )); ?>
+
+                        <a href="<?php echo URL::route('admin.carteleras.index'); ?>" class="btn btn-default">Cancelar</a>
+                    <?php echo Form::close(); ?>
+
+
+                </div>
+
+            </div>
+        </section>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-createDespacho" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Crear Despacho</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="alert alert-success fade in despacho-creado" style="display: none;">
+                    <button data-dismiss="alert" class="close close-sm" type="button">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Bien hecho!</strong> despacho creado.
+                </div>
+
+                <div class="alert alert-danger fade in errors_form" style="display: none;">
+                    <button data-dismiss="alert" class="close close-sm" type="button">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Lo sentimos!</strong> debes ingresar todos los campos.
+                </div>
+
+                <?php echo Form::open(array('route' => array('admin.despachos.create.post'), 'files' => 'true', 'class' => 'create_despacho_ajax')); ?>
+
+                    
+                    <div class="form-group <?php echo $errors->first('nombre', 'has-error'); ?>">
+                        <?php echo Form::label('nombre', 'Nombre'); ?>
+
+                        <?php echo Form::text('nombre', '', array('class' => 'form-control')); ?>
+
+                        <?php echo $errors->first('nombre', '<p class="help-block">:message</p>'); ?>
+
+                    </div>
+
+                    <div class="form-group <?php echo $errors->first('rama_id', 'has-error'); ?>">
+                        <?php echo Form::label('rama_id', 'Rama'); ?>
+
+                        <?php echo Form::select('rama_id', $ramas = array('0' => 'Seleccionar') + Rama::lists('nombre', 'id') , null, array('id' => 'rama_id', 'class' => 'form-control m-bot15', 'style'  => 'width:100%')); ?>
+
+                        <?php echo $errors->first('rama_id', '<p class="help-block">:message</p>'); ?>
+
+                    </div>
+                    <!-- <input type="hidden" name="departamento_create_id" id="departamento_create_id"> -->
+                    <?php echo Form::hidden('municipio_id', '', array('class' => 'form-control municipio_id', "id" => "municipio_id")); ?>
+
+
+            </div>
+            <div class="modal-footer">
+                <div style='margin: 10px 0px 0px 300px' class='before'></div> 
+                <button data-dismiss="modal" class="btn btn-default" type="button" id="buttonCancelar">Cancelar</button>
+                <?php echo Form::submit('Crear', array('class' => 'btn btn-primary', 'id' => 'buttonCreateDespacho')); ?>
+
+                <?php echo Form::close(); ?>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal-createDespachoError" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Crear Despacho</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="alert alert-danger fade in">
+                    <button data-dismiss="alert" class="close close-sm" type="button">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <strong>Lo sentimos!</strong> para crear un despacho debes seleccionar Departamento y Municipio.
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default" type="button" id="buttonCancelar">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('customscript'); ?>
+<?php echo HTML::script('admin/assets/select2-master/select2.js');; ?>
+
+<?php echo HTML::script('admin/js/select2/select-init.js');; ?>
+
+<?php echo HTML::script('admin/assets/bootstrap-inputmask/bootstrap-inputmask.min.js');; ?>
+
+<?php echo HTML::script('admin/assets/bootstrap-datepicker/js/bootstrap-datepicker.js');; ?>
+
+<?php echo HTML::script('admin/assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js');; ?>
+
+<?php echo HTML::script('admin/assets/bootstrap-switch-master/build/js/bootstrap-switch.js');; ?>
+
+<script type="text/javascript">
+var departamento_create_id;
+var municipio_create_id;
+
+    jQuery(document).ready(function() {
+
+    	$("[name='estado']").bootstrapSwitch();
+
+        $.ajax({
+            url: '../departamentos_lista',
+            type: 'GET',
+            dataType: 'json',
+            success: function(departamento){
+                $('select#departamento_id').html('');
+                $('select#departamento_id').append($('<option></option>').text('Seleccione un departamento').val(''));
+                //recorremos con el metodo each el objeto
+                $.each(departamento, function(i) {
+                    //Con los parametros que recibimos en nuestro objeto departamento creamos las opciones
+                    $('select#departamento_id').append("<option value=\""+departamento[i].id+"\">"+departamento[i].nombre+"<\/option>");
+                });
+            }
+        })
+        //El metodo Change nos permite realizar una acción al momento que estamos interactuando con el elemento
+        $("#departamento_id").change(function(event) {
+            var departamento_id = $("#departamento_id option:selected").val();  //obtenemos el id del departamento que se mantiene seleccionado
+            // $("#departamento_create_id").val(departamento_id);
+            // departamento_create_id = departamento_id;
+            
+            //Por medio de AJAX consultamos la ruta creada en laravel llamada municipios la cual recibe el id del país
+            $.ajax({
+                url: '../municipios_lista',
+                type: 'POST',
+                data: 'departamento_id='+departamento_id, //enviamos el id
+                dataType: 'json',
+                success: function(municipio){
+                    $('select#municipio_id').html('');
+                    $('select#municipio_id').append($('<option></option>').text('Seleccione un municipio').val('')); 
+                    //recorremos con el metodo each el objeto
+                    $.each(municipio, function(i) {
+                        //Con los parametros que recibimos en nuestro objeto municipio creamos las opciones
+                        $('select#municipio_id').append("<option value=\""+municipio[i].id+"\">"+municipio[i].nombre+"<\/option>");
+                        // municipio[i].id = Contiene el id del municipio
+                        // municipio[i].municipios = Contiene el nombre del municipio
+                    });
+                }
+            })
+        });
+
+        $("#municipio_id").change(function(event) {
+            var municipio_id = $("#municipio_id option:selected").val();  //obtenemos el id del municipio que se mantiene seleccionado
+            $(".municipio_id").val(municipio_id);
+            // municipio_create_id = municipio_id
+            
+            //Por medio de AJAX consultamos la ruta creada en laravel llamada municipios la cual recibe el id del país
+            $.ajax({
+                url: '../despachos_lista',
+                type: 'POST',
+                data: 'municipio_id='+municipio_id, //enviamos el id
+                dataType: 'json',
+                success: function(despacho){
+                    $('select#despacho_id').html('');
+                    $('select#despacho_id').append($('<option></option>').text('Seleccione un despacho').val('')); 
+                    //recorremos con el metodo each el objeto
+                    $.each(despacho, function(i) {
+                        //Con los parametros que recibimos en nuestro objeto despacho creamos las opciones
+                        $('select#despacho_id').append("<option value=\""+despacho[i].id+"\">"+despacho[i].nombre+"<\/option>");
+                        // despacho[i].id = Contiene el id del despacho
+                        // despacho[i].despachos = Contiene el nombre del despacho
+                    });
+                }
+            })
+        });
+
+        
+
+        var form = $('.create_despacho_ajax');
+            form.bind('submit',function () {
+                $.ajax({
+                    type: form.attr('method'),
+                    url: form.attr('action'),
+                    data: form.serialize(),
+                    beforeSend: function(){
+                        $('.before').append('<?php echo HTML::image('admin/images/input-spinner.gif'); ?>');
+                    },
+                    complete: function(data){
+                        
+                    },
+                    success: function (data) {
+                        $('.before').hide();
+                        $('.errors_form').hide();
+                        $('.despacho-creado').hide();
+                        if(data.success == false){
+                            var errores = '';
+                            for(datos in data.errors){
+                                errores += '<small class="error">' + data.errors[datos] + '</small>';
+                            }
+                            $('.errors_form').show();
+                        }else{
+                            $(form)[0].reset();
+                            $('.errors_form').hide();
+                            $('.despacho-creado').show();
+
+                            var municipio_id = $("#municipio_id option:selected").val();
+
+                            $.ajax({
+                                url: '../despachos_lista',
+                                type: 'POST',
+                                data: 'municipio_id='+municipio_id,
+                                dataType: 'json',
+                                success: function(despacho){
+                                    $('select#despacho_id').html('');
+                                    $('select#despacho_id').append($('<option></option>').text('Seleccione un despacho').val('')); 
+                                    $.each(despacho, function(i) {
+                                        $('select#despacho_id').append("<option value=\""+despacho[i].id+"\">"+despacho[i].nombre+"<\/option>");
+                                    });
+                                }
+                            })
+                        }
+                    },
+                    error: function(errors){
+                        $('.before').hide();
+                        $('.errors_form').hide();
+                        $('.errors_form').show();
+                    }
+                });
+           return false;
+        });
+
+    });
+
+function showConfirmDeleteModal() {
+    // var depid = $('#departamento_create_id').val();
+    var munid = $('.municipio_id').val();
+
+    if(munid == ""){
+        $('#modal-createDespachoError').modal({
+            show: true
+        });
+    }
+    else {
+        $('#modal-createDespacho').modal({
+            show: true
+        });
+    }
+}
+//date picker start
+
+if (top.location != location) {
+    top.location.href = document.location.href ;
+}
+$(function(){
+    window.prettyPrint && prettyPrint();
+    $('.default-date-picker').datepicker({
+        format: 'yyyy-mm-dd'
+    });
+    $('.dpYears').datepicker();
+    $('.dpMonths').datepicker();
+
+
+    var startDate = new Date(2012,1,20);
+    var endDate = new Date(2012,1,25);
+    $('.dp4').datepicker()
+        .on('changeDate', function(ev){
+            if (ev.date.valueOf() > endDate.valueOf()){
+                $('.alert').show().find('strong').text('The start date can not be greater then the end date');
+            } else {
+                $('.alert').hide();
+                startDate = new Date(ev.date);
+                $('#startDate').text($('.dp4').data('date'));
+            }
+            $('.dp4').datepicker('hide');
+        });
+    $('.dp5').datepicker()
+        .on('changeDate', function(ev){
+            if (ev.date.valueOf() < startDate.valueOf()){
+                $('.alert').show().find('strong').text('The end date can not be less then the start date');
+            } else {
+                $('.alert').hide();
+                endDate = new Date(ev.date);
+                $('.endDate').text($('.dp5').data('date'));
+            }
+            $('.dp5').datepicker('hide');
+        });
+
+    // disabling dates
+    var nowTemp = new Date();
+    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+
+    var checkin = $('.dpd1').datepicker({
+        onRender: function(date) {
+            return date.valueOf() < now.valueOf() ? 'disabled' : '';
+        }
+    }).on('changeDate', function(ev) {
+            if (ev.date.valueOf() > checkout.date.valueOf()) {
+                var newDate = new Date(ev.date)
+                newDate.setDate(newDate.getDate() + 1);
+                checkout.setValue(newDate);
+            }
+            checkin.hide();
+            $('.dpd2')[0].focus();
+        }).data('datepicker');
+    var checkout = $('.dpd2').datepicker({
+        onRender: function(date) {
+            return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+        }
+    }).on('changeDate', function(ev) {
+            checkout.hide();
+        }).data('datepicker');
+});
+
+//date picker end
+</script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layouts.base', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,1 @@
+/Users/Javi/Projects/spad/app/views/actor_tipos/index.blade.php

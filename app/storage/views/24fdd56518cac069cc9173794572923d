@@ -1,0 +1,8 @@
+<div class="form-group <?php echo $errors->first('fecha_publicacion', 'has-error'); ?>">
+  <?php echo Form::label('fecha_publicacion', 'Fecha de publicaciones'); ?>
+
+  <?php echo Form::text('fecha_publicacion', '', array('class' => 'form-control form-control-inline input-medium default-date-picker', 'size' => '36')); ?>
+
+  <?php echo $errors->first('fecha_publicacion', '<p class="help-block">:message</p>'); ?>
+
+</div>

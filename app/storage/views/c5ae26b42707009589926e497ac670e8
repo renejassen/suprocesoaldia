@@ -1,0 +1,92 @@
+<div class="form-group <?php echo $errors->first('empresa', 'has-error'); ?>">
+    <?php echo Form::label('empresa', 'Empresa'); ?>
+
+    <?php echo Form::text('empresa', '', array('class' => 'form-control')); ?>
+
+    <?php echo $errors->first('empresa', '<p class="help-block">:message</p>'); ?>
+
+</div>
+<div class="form-group <?php echo $errors->first('nit', 'has-error'); ?>">
+    <?php echo Form::label('nit', 'Nit'); ?>
+
+    <?php echo Form::text('nit', '', array('class' => 'form-control' , 'data-mask' => '999.999.999-9', 'placeholder' => '')); ?>
+
+    <?php echo $errors->first('nit', '<p class="help-block">:message</p>'); ?>
+
+</div>
+<div class="form-group <?php echo $errors->first('cargo', 'has-error'); ?>">
+    <?php echo Form::label('cargo', 'Cargo'); ?>
+
+    <?php echo Form::text('cargo', '', array('class' => 'form-control')); ?>
+
+    <?php echo $errors->first('cargo', '<p class="help-block">:message</p>'); ?>
+
+</div>
+<div class="form-group <?php echo $errors->first('nombres', 'has-error'); ?>">
+    <?php echo Form::label('nombres', 'Nombres'); ?>
+
+    <?php echo Form::text('nombres', '', array('class' => 'form-control')); ?>
+
+    <?php echo $errors->first('nombres', '<p class="help-block">:message</p>'); ?>
+
+</div>
+<div class="form-group <?php echo $errors->first('apellidos', 'has-error'); ?>">
+    <?php echo Form::label('apellidos', 'Apellidos'); ?>
+
+    <?php echo Form::text('apellidos', '', array('class' => 'form-control')); ?>
+
+    <?php echo $errors->first('apellidos', '<p class="help-block">:message</p>'); ?>
+
+</div>
+<div class="form-group <?php echo $errors->first('telefono', 'has-error'); ?>">
+    <?php echo Form::label('telefono', 'Teléfono'); ?>
+
+    <?php echo Form::text('telefono', '', array('class' => 'form-control', 'data-mask' => '(999) 999 9999', 'placeholder' => '(031) 555 5555')); ?>
+
+    <?php echo $errors->first('telefono', '<p class="help-block">:message</p>'); ?>
+
+</div>
+<div class="form-group <?php echo $errors->first('celular', 'has-error'); ?>">
+    <?php echo Form::label('celular', 'Celular'); ?>
+
+    <?php echo Form::text('celular', '', array('class' => 'form-control', 'data-mask' => '(999) 999 9999', 'placeholder' => '(310) 555 5555')); ?>
+
+    <?php echo $errors->first('celular', '<p class="help-block">:message</p>'); ?>
+
+</div>
+<div class="form-group <?php echo $errors->first('direccion', 'has-error'); ?>">
+    <?php echo Form::label('direccion', 'Dirección'); ?>
+
+    <?php echo Form::text('direccion', '', array('class' => 'form-control')); ?>
+
+    <?php echo $errors->first('direccion', '<p class="help-block">:message</p>'); ?>
+
+</div>
+<div class="form-group <?php echo $errors->first('servicios', 'has-error'); ?>">
+    <?php echo Form::label('servicio_lista', 'Servicios'); ?>
+
+    <?php echo Form::select('servicio_lista[]', $servicios , null, array('id' => 'e9', 'class' => 'populate', 'style'  => 'width:100%', 'multiple')); ?>
+
+    <!-- <select multiple name="e9" id="e9" style="width:100%" class="populate">
+        <optgroup label="Servicios virtuales">
+            <option value="1">Vigilancia diaria</option>
+            <option value="2">Cartelera virtual</option>
+        </optgroup>
+    </select> -->
+</div>
+<div class="form-group <?php echo $errors->first('email', 'has-error'); ?>">
+    <?php echo Form::label('email', 'Email'); ?>
+
+    <?php echo Form::text('email', '', array('class' => 'form-control')); ?>
+
+    <?php echo $errors->first('email', '<p class="help-block">:message</p>'); ?>
+
+</div>
+<!-- <div class="form-group <?php echo $errors->first('password', 'has-error'); ?>">
+    <?php echo Form::label('password', 'Password'); ?>
+
+    <?php echo Form::password('password', array('class' => 'form-control')); ?>
+
+    <?php echo $errors->first('password', '<p class="help-block">:message</p>'); ?>
+
+</div> -->

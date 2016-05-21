@@ -1,0 +1,63 @@
+<?php $__env->startSection('customstyle'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="row">
+    <div class="col-md-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb">
+            <li><a href="<?=URL::to('admin/inicio'); ?>"><i class="fa fa-home"></i> Inicio</a></li>
+            <li class="active"><i class="fa fa-gear"></i> Configuración</li>
+            <li><a href="<?=URL::to('admin/departamentos'); ?>"><i class="fa fa-angle-double-right"></i> Departamentos</a></li>
+            <li class="active"><i class="fa fa-pencil"></i> Modificar</li>
+        </ul>
+        <!--breadcrumbs end -->
+    </div>
+</div>
+<header class="panel-heading wht-bg">
+   <h4 class="gen-case">Departamento / <?php echo $departamento->nombre; ?></h4>
+</header>
+<div class="row">
+    <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    MODIFICAR
+                </header>
+                <div class="panel-body">
+                    <div class="position-center">
+                        <?php if(Session::has('message')): ?>
+                        <div class="alert alert-success fade in">
+                            <button data-dismiss="alert" class="close close-sm" type="button">
+                                <i class="fa fa-times"></i>
+                            </button>
+                            <strong>Bien hecho!</strong> departamento modificado.
+                        </div>
+                        <?php endif; ?>
+                        <?php if(Session::has('message_fail')): ?>
+                        <div class="alert alert-danger fade in">
+                            <button data-dismiss="alert" class="close close-sm" type="button">
+                                <i class="fa fa-times"></i>
+                            </button>
+                            <strong>Lo sentimos!</strong> debe seleccionar un archivo PDF.
+                        </div>
+                        <?php endif; ?>
+						<?php echo Form::model($departamento, array('route' => array('admin.departamentos.update', $departamento->id), 'method' => 'put', 'files' => 'true')); ?>
+
+                            <?php echo $__env->make('admin.departamentos.partials.formedit', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <a href="<?=URL::to('admin/departamentos');?>" class="btn btn-default">Cancelar</a>
+                        <?php echo Form::close(); ?>
+
+                    </div>
+
+                </div>
+            </section>
+
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('customscript'); ?>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layouts.base', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

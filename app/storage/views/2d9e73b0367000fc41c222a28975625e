@@ -1,0 +1,15 @@
+<div class="form-group <?php echo $errors->first('name', 'has-error'); ?>">
+    <?php echo Form::label('name', 'Nombre'); ?>
+
+    <?php echo Form::text('name', $role->name, array('class' => 'form-control')); ?>
+
+    <?php echo $errors->first('name', '<p class="help-block">:message</p>'); ?>
+
+</div>
+
+<?php /* <div class="form-group <?php echo $errors->first('permissions', 'has-error'); ?>">
+    <?php echo Form::label('permission_lista', 'Permisos'); ?>
+
+    <?php echo Form::select('permission_lista[]', $permissions , null, array('id' => 'e9', 'class' => 'populate', 'style'  => 'width:100%', 'multiple')); ?>
+
+</div> */ ?>

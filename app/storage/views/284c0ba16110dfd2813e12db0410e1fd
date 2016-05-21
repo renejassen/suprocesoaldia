@@ -1,0 +1,218 @@
+<?php $__env->startSection('customstyle'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="fullwidthbanner-container internas">
+    <div class="fullwidthbanner internas">
+            
+        <ul>
+            <li data-transition="fade">
+                
+                <img src="_content/index/slider/1920x547-1.jpg" alt="">
+                    
+                <h1 class="caption title sft" 
+                    data-x="0"  
+                    data-y="100" 
+                    data-speed="700" 
+                    data-start="1000" 
+                    data-easing="easeOutBack">
+                    Nuestros <strong>Servicios</strong>
+                </h1>
+                    
+                <div class="caption text sfb" 
+                    data-x="0" 
+                    data-y="320" 
+                    data-speed="700" 
+                    data-start="1500" 
+                    data-easing="easeOutBack">
+                    Suministramos servicios en el Campo Jurídico bajo los estándares <br>de calidad y confidencialidad requeridos.
+                </div>
+
+                <div class="caption icons-1 sfb" 
+                    data-x="600" 
+                    data-y="250" 
+                    data-speed="700" 
+                    data-start="1800" 
+                    data-easing="easeOutBack">
+                    <span>
+                        <i class="ifc-smartphone_tablet"></i>
+                    </span>
+                </div>
+
+                <div class="caption icons-2 sfb" 
+                    data-x="700" 
+                    data-y="200" 
+                    data-speed="700" 
+                    data-start="2000" 
+                    data-easing="easeOutBack">
+                    <span>
+                        <i class="ifc-date_to"></i>
+                    </span>
+                </div>
+
+                <div class="caption icons-3 sfb" 
+                    data-x="800" 
+                    data-y="150" 
+                    data-speed="700" 
+                    data-start="2200" 
+                    data-easing="easeOutBack">
+                    <span>
+                        <i class="ifc-history"></i>
+                    </span>
+                </div>
+                
+            </li>
+
+            
+
+        </ul>
+            
+        </div><!-- end .fullwidthbanner -->
+</div><!-- end .fullwidthbanner-container -->
+
+<div style="height: 60px;"></div>
+            
+        <div class="row">
+            <div class="span12">
+                
+                <h3 class="headline">
+                    <span>VIGILANCIA Y CONTROL DE PROCESOS JURÍDICOS</span>
+                </h3>
+                
+            </div><!-- end .span12 -->
+        </div><!-- end .row -->
+            
+        <div class="row">
+            <div class="span12">
+                
+                <p>De acuerdo a la base de procesos judiciales entregada por el CLIENTE en el cual haga parte o tenga interés, se visita diariamente los despachos judiciales de las ciudades y municipios de nuestra cobertura, verificando cada una las formas de notificación publicadas en cartelera (ESTADOS, TRASLADOS, EDICTOS DE SENTENCIA,EDICTOS EMPLAZATORIOS, AVISOS DE REMATE, FIJACIONES EN LISTA); estableciendo los procesos de interés que fueron notificados procediendo a su acceso con el fin de subir a nuestra plataforma en tiempo real un resumen de la actuación, fotografía de la pieza o piezas procesales referentes a dicha actuación y la publicación en que se notificó. De igual manera este servicio incluye la NOTIFICACION POR ESTRADOS.</p>
+                
+            </div><!-- end span8 -->
+            <!-- <div class="span4">
+                
+                <ul class="circle">
+                    <li>Lorem ipsum dolor sit, consectetur </li>
+                    <li>Proin eu sapien semper, consequat sapien</li>
+                    <li>Nunc sit amet lectus vel dui ornare moli</li>
+                </ul>
+                
+            </div> --><!-- end span4 -->
+        </div><!-- end .row -->
+            
+        <div class="row">
+            <div class="span12">
+                
+                <h3 class="headline-2">
+                    <span>Características principales</span>
+                </h3>
+                
+            </div><!-- end .span12 -->
+        </div><!-- end .row -->
+        
+        <div class="row">
+            <div class="span4">
+
+                <div class="icon-box-1">
+                                    
+                    <i class="ifc-email"></i>
+                    
+                    <div class="icon-box-content">
+                        
+                        <h3>
+                            AVISO VIA E-MAIL
+                        </h3>
+                        
+                        <p>Sin moverse de la comodidad de su oficina  vía E-mail conozca el mismo día los procesos de 
+                        su interés que tuvieron movimiento con la información completa del mismo.</p>
+                    
+                    </div><!-- end .icon-box-content -->
+                    
+                </div><!-- end .icon-box-1 -->
+                
+            </div><!-- end .span4 -->
+            <div class="span4">
+
+                <div class="icon-box-1">
+                                    
+                    <i class="ifc-folder"></i>
+                    
+                    <div class="icon-box-content">
+                        
+                        <h3>
+                            HOJA DE VIDA VIRTUAL
+                        </h3>
+                        
+                        <p>Mantenga un historial de cada uno de sus procesos documentado virtualmente, sin necesidad de 
+                        tener un software especial, sino con acceso desde cualquier equipo o móvil.</p>
+                    
+                    </div><!-- end .icon-box-content -->
+                    
+                </div><!-- end .icon-box-1 -->
+                
+            </div><!-- end .span4 -->
+            <div class="span4">
+
+                <div class="icon-box-1">
+                                    
+                    <i class="ifc-calendar"></i>
+                    
+                    <div class="icon-box-content">
+                        
+                        <h3>
+                            AGENDA VIRTUAL
+                        </h3>
+                        
+                        <p>Consulte su Agenda Virtual con la programación de sus Audiencias.</p>
+                    
+                    </div><!-- end .icon-box-content -->
+                    
+                </div><!-- end .icon-box-1 -->
+                
+            </div><!-- end .span4 -->
+        </div><!-- end .row -->
+
+        <div class="box" style="background-color: #00a0b1; margin-bottom: 0px;">
+            
+            <div class="row">
+                <div class="span12">
+                    
+                    <div class="callout-box hidden-phone">
+                        
+                        <div class="row">
+                            <div class="span9">
+                                
+                                <div class="icon-box-1">
+                                    
+                                    <i class="ifc-read_message"></i>
+                                    
+                                    <div class="icon-box-content">
+                                        
+                                        <h2>
+                                            <a href="contactenos">Esta interesado en <strong>ADQUIRIR NUESTROS SERVICIOS</strong></a>
+                                        </h2>
+                                        
+                                        <p class="last hidden-tablet">Envíenos sus datos y consultor jurídico se comunicará con usted y le brindará toda la información necesaria.</p>
+                                    
+                                    </div><!-- end .icon-box-content -->
+                                    
+                                </div><!-- end .icon-box-1 -->
+                                
+                            </div><!-- end .span9 -->
+                            <div class="span3 text-right">
+                                
+                                <a class="btn btn-large btn-black" href="contactenos"><strong>Contáctenos</strong> Ahora</a>
+                                
+                            </div><!-- end .span3 -->
+                        </div><!-- end .row -->
+                        
+                    </div><!-- end .callout-box -->
+                    
+                </div><!-- end .span12 -->
+            </div><!-- end .row -->
+            
+        </div><!-- end .box -->
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('customscript'); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.base', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

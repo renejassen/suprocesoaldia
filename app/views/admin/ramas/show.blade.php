@@ -1,0 +1,1 @@
+/Users/Javi/Projects/spad/app/views/ramas/show.blade.php

@@ -1,0 +1,163 @@
+<?php $__env->startSection('customstyle'); ?>
+<?php echo HTML::style('admin/assets/advanced-datatable/media/css/demo_page.css');; ?>
+
+<?php echo HTML::style('admin/assets/advanced-datatable/media/css/demo_table.css');; ?>
+
+<?php echo HTML::style('admin/assets/data-tables/DT_bootstrap.css');; ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="row">
+    <div class="col-md-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb">
+            <li><a href="<?=URL::to('admin/inicio'); ?>"><i class="fa fa-home"></i> Inicio</a></li>
+            <li class="active"><i class="fa fa-gear"></i> Configuración</li>
+            <li><a href="<?=URL::route('admin.departamentos.index'); ?>"><i class="fa fa-angle-double-right"></i> Departamentos</a></li>
+            <li><a href="<?=URL::route('admin.departamentos.municipios.index', $departamento->id); ?>"><i class="fa fa-angle-double-right"></i> Municipios</a></li>
+            <li class="active"><i class="fa fa-angle-double-right"></i> Despachos</li>
+        </ul>
+        <!--breadcrumbs end -->
+    </div>
+</div>
+<header class="panel-heading wht-bg">
+   <h4 class="gen-case">Despachos / <?php echo $departamento->nombre; ?> / <strong><?php echo $municipio->nombre; ?></strong></h4>
+</header>
+<div class="row">
+    <div class="col-sm-12">
+        <section class="panel">
+            <header class="panel-heading">
+                LISTA
+                <span class="badge bg-default"><?php echo $despachos->count(); ?></span>
+               <!--  <div class="mini-stat clearfix">
+		            <span class="mini-stat-icon orange"><i class="fa fa-gavel"></i></span>
+		            <div class="mini-stat-info">
+		                <span></span>
+		                Total
+		            </div>
+		        </div> -->
+                <!-- <span class="tools pull-right">
+                    <a href="javascript:;" class="fa fa-chevron-down"></a>
+                    <a href="javascript:;" class="fa fa-cog"></a>
+                    <a href="javascript:;" class="fa fa-times"></a>
+                 </span> -->
+            </header>
+            <div class="panel-body">
+            <?php if(Session::has('message_destroy')): ?>
+            <div class="alert alert-success fade in">
+                <button data-dismiss="alert" class="close close-sm" type="button">
+                    <i class="fa fa-times"></i>
+                </button>
+                <strong>Bien hecho!</strong> despacho eliminado.
+            </div>
+            <?php endif; ?>
+            <?php if(Session::has('message_store')): ?>
+            <div class="alert alert-success fade in">
+                <button data-dismiss="alert" class="close close-sm" type="button">
+                    <i class="fa fa-times"></i>
+                </button>
+                <strong>Bien hecho!</strong> despacho creado.
+            </div>
+            <?php endif; ?>
+
+            <?php if(Entrust::can('crear_despachos')): ?>
+            <a href="<?php echo URL::route('admin.departamentos.municipios.despachos.create', array($departamento->id, $municipio->id)); ?>" class="btn btn-primary"><i class="fa fa-plus"></i> Crear</a>
+            <?php endif; ?>
+
+            <div class="adv-table">
+            <table  class="display table table-bordered table-striped" id="dynamic-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Rama</th>
+                <th>Creación</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <?php foreach($despachos as $despacho): ?>
+            <tr class="">
+                <td><?php echo $despacho->id; ?></td>
+                <td><?php echo $despacho->nombre; ?></td>
+                <td><?php echo Rama::where('id','=', $despacho->rama_id)->pluck('nombre'); ?></td>
+                <td><?php echo $despacho->created_at; ?></td>
+                <td>
+                    <div class="botones">
+
+                        <?php if(Entrust::can('editar_despachos')): ?>
+                        <a class="btn btn-primary btn-sm tooltips" href="<?php echo URL::route('admin.departamentos.municipios.despachos.edit', array($departamento->id, $municipio->id, $despacho->id)); ?>" title="" data-placement="top" data-toggle="tooltip" data-original-title="Modificar"><i class="fa fa-pencil"></i></a>
+                        <?php endif; ?>
+                        
+                        <?php if(Entrust::can('eliminar_despachos')): ?>
+                        <?php echo Form::button('<i class="fa fa-trash-o"></i>', array(
+                                'onclick' =>    'showConfirmDeleteModal(
+                                                    "' . $despacho->nombre . '",
+                                                    "' . route('admin.departamentos.municipios.despachos.destroy', array($departamento->id, $municipio->id, $despacho->id)) . '"
+                                                )',
+                                'class' => 'btn btn-danger btn-sm tooltips', 'title' => '', 'data-placement' => 'top', 'data-toggle' => 'tooltip', 'data-original-title' => 'Eliminar'
+                            )); ?>
+
+                        <?php endif; ?>
+                    </div>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+            </tbody>
+            </table>
+            </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div class="modal fade" id="modal-confirmDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">despachos</h4>
+                        </div>
+                        <div class="modal-body">
+
+                            Esta seguro de eliminar el despacho <strong><span id="deleteName"></span></strong>?
+
+                        </div>
+                        <div class="modal-footer">
+                            <button data-dismiss="modal" class="btn btn-default" type="button">Cancelar</button>
+                            <?php echo Form::open(array('id' => 'deleteForm', 'method' => 'delete', 'style' => 'display:inline-block')); ?>
+
+                            <?php echo Form::submit('Confirmar', array('class' => 'btn btn-warning')); ?>
+
+                            <?php echo Form::close(); ?>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('customscript'); ?>
+<?php echo HTML::script('admin/assets/advanced-datatable/media/js/jquery.dataTables.js');; ?>
+
+<?php echo HTML::script('admin/assets/data-tables/DT_bootstrap.js');; ?>
+
+<?php echo HTML::script('admin/js/dynamic_table/dynamic_table_init.js');; ?>
+
+<?php echo HTML::script('admin/assets/flot-chart/jquery.flot.tooltip.min.js');; ?>
+
+<script type="text/javascript">
+function showConfirmDeleteModal(name, url) {
+    $('#deleteForm').prop('action', url);
+    $('#deleteName').text(name);
+
+    $('#modal-confirmDelete').modal({
+        show: true
+    });
+
+    $('.tooltips').tooltip();
+}
+</script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layouts.base', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

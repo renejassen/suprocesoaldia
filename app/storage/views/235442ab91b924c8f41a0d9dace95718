@@ -1,0 +1,9 @@
+<html>
+<head></head>
+<body>
+<p><strong>Nombre del contacto:</strong> <?php echo $name; ?></p>
+<p><strong>Email del contacto:</strong> <?php echo $email; ?></p>
+<p><strong>Teléfono del contacto:</strong> <?php echo $telephone; ?></p>
+<p><strong>Mensaje:</strong> <?php echo $msg; ?></p>
+</body>
+</html>

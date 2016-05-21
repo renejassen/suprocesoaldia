@@ -1,0 +1,207 @@
+<?php $__env->startSection('customstyle'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="fullwidthbanner-container internas">
+    <div class="fullwidthbanner internas">
+            
+        <ul>
+            <li data-transition="fade">
+                
+                <img src="_content/index/slider/1920x547-1.jpg" alt="">
+                    
+                <h1 class="caption title sft" 
+                    data-x="0"  
+                    data-y="100" 
+                    data-speed="700" 
+                    data-start="1000" 
+                    data-easing="easeOutBack">
+                    Nuestros <strong>Servicios</strong>
+                </h1>
+                    
+                <div class="caption text sfb" 
+                    data-x="0" 
+                    data-y="320" 
+                    data-speed="700" 
+                    data-start="1500" 
+                    data-easing="easeOutBack">
+                    Suministramos servicios en el Campo Jurídico bajo los estándares <br>de calidad y confidencialidad requeridos.
+                </div>
+
+                <div class="caption icons-1 sfb" 
+                    data-x="600" 
+                    data-y="250" 
+                    data-speed="700" 
+                    data-start="1800" 
+                    data-easing="easeOutBack">
+                    <span>
+                        <i class="ifc-smartphone_tablet"></i>
+                    </span>
+                </div>
+
+                <div class="caption icons-2 sfb" 
+                    data-x="700" 
+                    data-y="200" 
+                    data-speed="700" 
+                    data-start="2000" 
+                    data-easing="easeOutBack">
+                    <span>
+                        <i class="ifc-date_to"></i>
+                    </span>
+                </div>
+
+                <div class="caption icons-3 sfb" 
+                    data-x="800" 
+                    data-y="150" 
+                    data-speed="700" 
+                    data-start="2200" 
+                    data-easing="easeOutBack">
+                    <span>
+                        <i class="ifc-history"></i>
+                    </span>
+                </div>
+                
+            </li>
+
+            
+
+        </ul>
+            
+        </div><!-- end .fullwidthbanner -->
+</div><!-- end .fullwidthbanner-container -->
+
+<div style="height: 60px;"></div>
+            
+        <div class="row">
+        	<div class="span12">
+            	
+                <h3 class="headline">
+                	<span>UBICACIÓN, LEVANTAMIENTO DE INFORMACIÓN Y DESARCHIVE</span>
+                </h3>
+                
+            </div><!-- end .span12 -->
+        </div><!-- end .row -->
+            
+        <div class="row">
+        	<div class="span12">
+            	
+                <p>Se presta como servicio unitario o tomando otros productos de la empresa, a CLIENTES que requieran que sean 
+                ubicados procesos en los despachos judiciales de las ciudades y municipios de nuestra cobertura,  entregados 
+                para consultar con el objeto de verificar si están activos, inactivos, archivados y último movimiento notificado 
+                o no ubicado.</p>
+
+                <p>De igual manera en esta modalidad de servicio se ofrece el servicio de  Levantamiento de Procesos consistente 
+                en verificar si existen procesos donde la Persona Natural o Jurídica de interés sea Actor Procesal.</p>
+
+                <p>Adicional el CLIENTE puede determinar cómo libre decisión,  si realizamos la gestión de desarchive de los procesos 
+                que se reporten como archivados.</p>
+
+                
+            </div><!-- end span8 -->
+            <!-- <div class="span4">
+            	
+                <ul class="circle">
+                	<li>Lorem ipsum dolor sit, consectetur </li>
+                    <li>Proin eu sapien semper, consequat sapien</li>
+                    <li>Nunc sit amet lectus vel dui ornare moli</li>
+                </ul>
+                
+            </div> --><!-- end span4 -->
+        </div><!-- end .row -->
+            
+        <div class="row">
+        	<div class="span12">
+            	
+                <h3 class="headline-2">
+                	<span>Características principales</span>
+                </h3>
+                
+            </div><!-- end .span12 -->
+        </div><!-- end .row -->
+        
+        <div class="row">
+        	<div class="span6">
+
+                <div class="icon-box-1">
+                                	
+                    <i class="ifc-document"></i>
+                    
+                    <div class="icon-box-content">
+                        
+                        <h3>
+                            ESTADO
+                        </h3>
+                        
+                        <p>Conocimiento del Estado Actual del proceso.</p>
+                    
+                    </div><!-- end .icon-box-content -->
+                    
+                </div><!-- end .icon-box-1 -->
+                
+            </div><!-- end .span4 -->
+            <div class="span6">
+
+                <div class="icon-box-1">
+                                	
+                    <i class="ifc-search"></i>
+                    
+                    <div class="icon-box-content">
+                        
+                        <h3>
+                            UBICACIÓN
+                        </h3>
+                        
+                        <p>Ubicación de procesos para evitar  prescripción, perención o archivo de sus expedientes.</p>
+                    
+                    </div><!-- end .icon-box-content -->
+                    
+                </div><!-- end .icon-box-1 -->
+                
+            </div><!-- end .span4 -->
+        </div><!-- end .row -->
+
+        <div class="box" style="background-color: #00a0b1; margin-bottom: 0px;">
+            
+            <div class="row">
+                <div class="span12">
+                    
+                    <div class="callout-box hidden-phone">
+                        
+                        <div class="row">
+                            <div class="span9">
+                                
+                                <div class="icon-box-1">
+                                    
+                                    <i class="ifc-read_message"></i>
+                                    
+                                    <div class="icon-box-content">
+                                        
+                                        <h2>
+                                            <a href="contactenos">Esta interesado en <strong>ADQUIRIR NUESTROS SERVICIOS</strong></a>
+                                        </h2>
+                                        
+                                        <p class="last hidden-tablet">Envíenos sus datos y consultor jurídico se comunicará con usted y le brindará toda la información necesaria.</p>
+                                    
+                                    </div><!-- end .icon-box-content -->
+                                    
+                                </div><!-- end .icon-box-1 -->
+                                
+                            </div><!-- end .span9 -->
+                            <div class="span3 text-right">
+                                
+                                <a class="btn btn-large btn-black" href="contactenos"><strong>Contáctenos</strong> Ahora</a>
+                                
+                            </div><!-- end .span3 -->
+                        </div><!-- end .row -->
+                        
+                    </div><!-- end .callout-box -->
+                    
+                </div><!-- end .span12 -->
+            </div><!-- end .row -->
+            
+        </div><!-- end .box -->
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('customscript'); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.base', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

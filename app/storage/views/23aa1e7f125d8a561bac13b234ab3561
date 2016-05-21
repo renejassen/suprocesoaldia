@@ -1,0 +1,46 @@
+    <div id="header">
+
+        <div class="row">
+            <div class="span3">
+                <a href="<?php echo URL::route('home'); ?>" id="logo">
+                    <img src="_layout/images/logo.png" alt="" class="responsive-img">
+                </a>
+            </div>
+                
+            <div class="span9">
+                <!-- // Mobile menu trigger // -->
+                <a href="#" id="mobile-menu-trigger">
+                    <i class="fa fa-bars"></i>
+                </a>
+                        
+                <!-- // Menu // -->
+                <ul class="sf-menu" id="menu">
+                    <li class="<?php echo Request::is('/') ? 'current' : '';; ?>">
+                        <a href="<?php echo URL::route('home'); ?>">Inicio</a>
+                    </li>
+                    <li class="<?php echo Request::is('quienes-somos') ? 'current' : '';; ?>">
+                        <a href="<?php echo URL::route('quienes'); ?>">Quienes somos</a>
+                    </li>
+                    <li class="<?php echo Request::is('servicios') || Request::is('servicios/*') ? 'current' : '';; ?>">
+                        <a href="<?php echo URL::route('servicios'); ?>">Servicios</a>
+                        <ul>
+                        <li><a href="<?php echo URL::route('servicio1'); ?>">Publicaciones virtuales a nivel nacional</a></li>
+                        <li><a href="<?php echo URL::route('servicio2'); ?>">Vigilancia y control de procesos jurídicos</a></li>
+                        <li><a href="<?php echo URL::route('servicio3'); ?>">Ubicación, levantamiento de información y desarchive</a></li>
+                        <li><a href="<?php echo URL::route('servicio4'); ?>">Fiscalización de procesos judiciales</a></li>
+                        <li><a href="<?php echo URL::route('servicio5'); ?>">Acompañamiento a audiencias judiciales y extrajudiciales</a></li>
+                        <li><a href="<?php echo URL::route('servicio6'); ?>">Radicación de documentos en despachos </a></li>
+                        <li><a href="<?php echo URL::route('servicio7'); ?>">Servicios adicionales</a></li>
+                        <li><a href="<?php echo URL::route('cobertura'); ?>">Cobertura</a></li>
+                        </ul>
+                    </li>
+                    <li class="<?php echo Request::is('cobertura') ? 'current' : '';; ?>">
+                        <a href="<?php echo URL::route('cobertura'); ?>">Cobertura</a>
+                    </li>
+                    <li class="<?php echo Request::is('contactenos') ? 'current' : '';; ?>"><a href="<?php echo URL::route('contactenos'); ?>">Contáctenos</a></li>
+                    <li><a href="<?php echo URL::route('admin.login'); ?>" target="_blank"><i class="ifc-user_male2"></i> Ingresar</a></li>
+                </ul>
+            </div>
+        </div>	
+
+    </div>

@@ -1,0 +1,83 @@
+<html>
+<head>
+    <style>
+        *{margin:0;padding:0}
+    </style>
+</head>
+<body style="color: #333333;
+    background: #f1f2f7;
+    font-family: 'Open Sans',sans-serif;
+    padding: 15px !important;
+    margin: 0px !important;
+    font-size: 13px;
+    text-rendering: optimizeLegibility;">
+<header class="" style="background: #fff; border-color: #eff2f7; font-size: 13px; font-weight: 400; text-transform: uppercase; padding: 15px; border-bottom: 1px solid transparent; font-family: 'Open Sans',sans-serif;">
+   
+   <h4 class="gen-case" style="font-size: 24px; color: #a2a2a2; font-weight: 300; text-transform: none; margin-top: 10px; margin-bottom: 10px;">Suprocesoaldia.com / <span style="color:#1fb5ad"><?php echo $nombre_cliente; ?></span></h4>
+
+</header>
+
+<div class="row" style="width: 100%">
+    <div class="col-sm-12" style="position: relative; min-height: 1px;">
+        <section class="panel" style="width: 100%; border: none; box-shadow: none; margin-bottom: 20px; background-color: #fff; border-radius: 4px;">
+            <header class="panel-heading" style="border-color: #eff2f7; font-size: 13px; font-weight: 400; background: #fafafa; text-transform: uppercase; padding: 15px; border-bottom: 1px solid transparent; display: block;">
+                AVISO AUTOMÁTICO - GENERADO <?php echo $generado; ?>
+
+            </header>
+            <div class="panel-body" style="padding: 15px;">
+
+            <div class="adv-table">
+            <?php foreach($data as $key => $proceso): ?>
+            <table class="table table-bordered" style="clear: both; margin-bottom: 20px !important; max-width: none !important; border: 1px solid #ddd;     width: 100%; background-color: transparent; border-collapse: collapse; border-spacing: 0;font-size: 12px;">
+                <thead>
+                    <tr style="background: #1fb5ad; color:#ffffff;">
+                        <th style="border-top:0; padding: 10px; border-bottom-width: 2px; border: 1px solid #1ca19a; vertical-align: bottom; line-height: 1.428571429; text-align: left;">Radicado</th>
+                        <th style="border-top:0; padding: 10px; border-bottom-width: 2px; border: 1px solid #1ca19a; vertical-align: bottom; line-height: 1.428571429; text-align: left;">Demandante</th>
+                        <th style="border-top:0; padding: 10px; border-bottom-width: 2px; border: 1px solid #1ca19a; vertical-align: bottom; line-height: 1.428571429; text-align: left;">Demandado</th>
+                        <th style="border-top:0; padding: 10px; border-bottom-width: 2px; border: 1px solid #1ca19a; vertical-align: bottom; line-height: 1.428571429; text-align: left;">Apoderado</th>
+                        <th style="border-top:0; padding: 10px; border-bottom-width: 2px; border: 1px solid #1ca19a; vertical-align: bottom; line-height: 1.428571429; text-align: left;">Ciudad</th>
+                        <th style="border-top:0; padding: 10px; border-bottom-width: 2px; border: 1px solid #1ca19a; vertical-align: bottom; line-height: 1.428571429; text-align: left;">Despacho</th>
+                        <th style="border-top:0; padding: 10px; border-bottom-width: 2px; border: 1px solid #1ca19a; vertical-align: bottom; line-height: 1.428571429; text-align: left;">Tipo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd; line-height: 1.428571429; vertical-align: top;"><?php echo $proceso[1]; ?></td>
+                        <td style="padding: 10px; border: 1px solid #ddd; line-height: 1.428571429; vertical-align: top;"><?php echo $proceso[2]; ?></td>
+                        <td style="padding: 10px; border: 1px solid #ddd; line-height: 1.428571429; vertical-align: top;"><?php echo $proceso[3]; ?></td>
+                        <td style="padding: 10px; border: 1px solid #ddd; line-height: 1.428571429; vertical-align: top;"><?php echo $proceso[4]; ?></td>
+                        <td style="padding: 10px; border: 1px solid #ddd; line-height: 1.428571429; vertical-align: top;"><?php echo $proceso[5]; ?></td>
+                        <td style="padding: 10px; border: 1px solid #ddd; line-height: 1.428571429; vertical-align: top;"><?php echo $proceso[6]; ?></td>
+                        <td style="padding: 10px; border: 1px solid #ddd; line-height: 1.428571429; vertical-align: top;"><?php echo $proceso[7]; ?></td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr style="background: #f9f9f9">
+                        <th style="border-top:0; padding: 10px; border-bottom-width: 2px; border: 1px solid #ddd; vertical-align: bottom; line-height: 1.428571429; text-align: left;" colspan="2">Publicación</th>
+                        <!-- <th>Fecha Pub</th> -->
+                        <th style="border-top:0; padding: 10px; border-bottom-width: 2px; border: 1px solid #ddd; vertical-align: bottom; line-height: 1.428571429; text-align: left;">Etapa</th>
+                        <th style="border-top:0; padding: 10px; border-bottom-width: 2px; border: 1px solid #ddd; vertical-align: bottom; line-height: 1.428571429; text-align: left;" colspan="2">Actuación</th>
+                        <th style="border-top:0; padding: 10px; border-bottom-width: 2px; border: 1px solid #ddd; vertical-align: bottom; line-height: 1.428571429; text-align: left;" colspan="2">Resumen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd; line-height: 1.428571429; vertical-align: top;"><?php echo $proceso[8]; ?></td>
+                        <td style="padding: 10px; border: 1px solid #ddd; line-height: 1.428571429; vertical-align: top;"><?php echo $proceso[9]; ?></td>
+                        <td style="padding: 10px; border: 1px solid #ddd; line-height: 1.428571429; vertical-align: top;"><?php echo $proceso[10]; ?></td>
+                        <td style="padding: 10px; border: 1px solid #ddd; line-height: 1.428571429; vertical-align: top;" colspan="2"><?php echo $proceso[11]; ?></td>
+                        <td style="padding: 10px; border: 1px solid #ddd; line-height: 1.428571429; vertical-align: top;" colspan="2"><?php echo $proceso[12]; ?></td>
+                    </tr>
+                </tbody>
+            </table>
+            <?php endforeach; ?>
+            
+           
+
+            </div>
+            </div>
+        </section>
+    </div>
+</div>
+</body>
+</html>

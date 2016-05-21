@@ -1,0 +1,325 @@
+<?php $__env->startSection('customstyle'); ?>
+<?php echo HTML::style('admin/assets/advanced-datatable/media/css/demo_page.css');; ?>
+
+<?php echo HTML::style('admin/assets/advanced-datatable/media/css/demo_table.css');; ?>
+
+<?php echo HTML::style('admin/assets/data-tables/DT_bootstrap.css');; ?>
+
+<?php echo HTML::style('admin/assets/select2-master/select2.css');; ?>
+
+<?php echo HTML::style('admin/assets/bootstrap-datepicker/css/datepicker.css');; ?>
+
+<?php echo HTML::style('admin/assets/bootstrap-switch-master/build/css/bootstrap3/bootstrap-switch.css');; ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="row">
+    <div class="col-md-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb">
+            <li><a href="<?=URL::to('admin/inicio'); ?>"><i class="fa fa-home"></i> Inicio</a></li>
+            <li><i class="fa fa-angle-double-right"></i> Cartelera virtual</li>
+            <li class="active"><i class="fa fa-angle-double-right"></i> Reporte</li>
+        </ul>
+        <!--breadcrumbs end -->
+    </div>
+</div>
+<header class="panel-heading wht-bg">
+   <h4 class="gen-case">Cartelera virtual</h4>
+</header>
+<div class="row">
+    <div class="col-sm-12">
+        <section class="panel">
+            <header class="panel-heading">
+                REPORTE DE PUBLICACIONES SIN FOTO
+            </header>
+            <div class="panel-body">
+			
+				<div class="position-center">
+                    
+                    <?php if(Session::has('message_error')): ?>
+                    <div class="alert alert-error fade in">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <strong>Lo sentimos!</strong> El campo email ya se encuentra asignado a un proceso.
+                    </div>
+                    <?php endif; ?>
+
+                    <?php echo Form::open(array('route' => array('admin.carteleras.report'))); ?>
+
+                        <?php echo $__env->make('admin.carteleras.partials.formreport', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                        <button type="submit" class="btn btn-primary">Buscar</button>
+                    <?php echo Form::close(); ?>
+
+
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <div class="col-sm-12">
+        <section class="panel">
+            <header class="panel-heading">
+                RESULTADOS
+                <span class="badge bg-default"><?php echo $carteleras->count(); ?></span>
+            </header>
+            <div class="panel-body">
+            
+            <div class="adv-table">
+            <?php if($carteleras->count()): ?>
+	            <table  class="display table table-bordered table-striped" id="dynamic-table2">
+	            <thead>
+	            <tr>
+	                <th>Despacho</th>
+	                <th>Fecha de publicación</th>
+	                <th>Acciones</th>
+	            </tr>
+	            </thead>
+	            <tbody>
+				
+	            <?php foreach($carteleras as $cartelera): ?>
+	            <tr class="">
+	                <td>
+	                	<?php echo Municipio::where('id',$cartelera->municipio_id)->pluck('nombre'); ?>
+
+	                	<br>
+	                	<?php echo Despacho::where('id',$cartelera->despacho_id)->pluck('nombre'); ?>
+
+	                </td>
+	                <td>
+                        <?php echo date("d F Y",strtotime($cartelera->fecha_publicacion)); ?>
+
+                        <br>
+                        <?php if(Entrust::can('editar_clientes')): ?>
+                        <?php echo User::where('id',$cartelera->user_id)->pluck('first_name'); ?> <?php echo User::where('id',$cartelera->user_id)->pluck('last_name'); ?>
+
+                        <?php endif; ?>
+                    </td>
+	                <td>
+	                    <div class="botones">
+
+                            <?php if(Entrust::can('ver_cartelera')): ?>
+    	                    	<?php if($cartelera->estado == 1): ?>
+    	                		<a class="btn btn-info btn-sm" href="<?php echo URL::route('admin.carteleras.show', $cartelera->id); ?>" target="_blank"><i class="fa fa-columns"></i></a>
+    		                	<?php else: ?>
+    		                		<span class="label label-default" style="margin-bottom:5px;">Sin publicaciones</span>
+    		                	<?php endif; ?>
+                            <?php endif; ?>
+					        
+                            <?php if(Entrust::can('editar_cartelera')): ?>
+	                        <a class="btn btn-primary btn-sm" href="<?php echo URL::route('admin.carteleras.edit', $cartelera->id); ?>"><i class="fa fa-pencil"></i></a>
+                            <?php endif; ?>
+	                        
+                            <?php if(Entrust::can('eliminar_cartelera')): ?>
+	                        <?php echo Form::button('<i class="fa fa-trash-o"></i>', array(
+	                                'onclick' =>    'showConfirmDeleteModal(
+	                                                    "' . Despacho::where('id',$cartelera->despacho_id)->pluck('nombre') . " - Fecha: " . date("d F Y",strtotime($cartelera->fecha_publicacion)) . '",
+	                                                    "' . route('admin.carteleras.destroy', $cartelera->id) . '"
+	                                                )',
+	                                'class' => 'btn btn-danger btn-sm',
+	                            )); ?>
+
+                            <?php endif; ?>
+	                    </div>
+	                </td>
+	            </tr>
+	            <?php endforeach; ?>
+	            </tbody>
+	            </table>
+            <?php else: ?>
+            	<p class="lead" style="text-align:center">No existen publicaciones para esta fecha</p>
+            <?php endif; ?>
+            </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div class="modal fade" id="modal-confirmDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">carteleras</h4>
+            </div>
+            <div class="modal-body">
+
+                Esta seguro de eliminar la cartelera <br><strong><span id="deleteName"></span></strong>?
+
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default" type="button">Cancelar</button>
+                <?php echo Form::open(array('id' => 'deleteForm', 'method' => 'delete', 'style' => 'display:inline-block')); ?>
+
+                <?php echo Form::submit('Confirmar', array('class' => 'btn btn-warning')); ?>
+
+                <?php echo Form::close(); ?>
+
+            </div>
+        </div>
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('customscript'); ?>
+<?php echo HTML::script('admin/assets/advanced-datatable/media/js/jquery.dataTables.js');; ?>
+
+<?php echo HTML::script('admin/assets/data-tables/DT_bootstrap.js');; ?>
+
+<?php echo HTML::script('admin/js/dynamic_table/dynamic_table_init.js');; ?>
+
+
+<?php echo HTML::script('admin/assets/select2-master/select2.js');; ?>
+
+<?php echo HTML::script('admin/js/select2/select-init.js');; ?>
+
+<?php echo HTML::script('admin/assets/bootstrap-inputmask/bootstrap-inputmask.min.js');; ?>
+
+<?php echo HTML::script('admin/assets/bootstrap-datepicker/js/bootstrap-datepicker.js');; ?>
+
+
+<script type="text/javascript">
+function showConfirmDeleteModal(name, url) {
+    $('#deleteForm').prop('action', url);
+    $('#deleteName').text(name);
+
+    $('#modal-confirmDelete').modal({
+        show: true
+    });
+}
+
+jQuery(document).ready(function() {
+    $.ajax({
+        url: "<?php echo URL::to('admin/departamentos_lista'); ?>",
+        type: 'GET',
+        dataType: 'json',
+        success: function(departamento){
+            $('select#departamento_id').html('');
+            $('select#departamento_id').append($('<option></option>').text('Seleccione un departamento').val(''));
+            //recorremos con el metodo each el objeto
+            $.each(departamento, function(i) {
+                //Con los parametros que recibimos en nuestro objeto departamento creamos las opciones
+                $('select#departamento_id').append("<option value=\""+departamento[i].id+"\">"+departamento[i].nombre+"<\/option>");
+            });
+        }
+    });
+    //El metodo Change nos permite realizar una acción al momento que estamos interactuando con el elemento
+    $("#departamento_id").change(function(event) {
+        var departamento_id = $("#departamento_id option:selected").val();  //obtenemos el id del departamento que se mantiene seleccionado
+        
+        //Por medio de AJAX consultamos la ruta creada en laravel llamada municipios la cual recibe el id del país
+        $.ajax({
+            url: "<?php echo URL::to('admin/municipios_lista'); ?>",
+            type: 'POST',
+            data: 'departamento_id='+departamento_id, //enviamos el id
+            dataType: 'json',
+            success: function(municipio){
+                $('select#municipio_id').html('');
+                $('select#municipio_id').append($('<option></option>').text('Seleccione un municipio').val('')); 
+                //recorremos con el metodo each el objeto
+                $.each(municipio, function(i) {
+                    //Con los parametros que recibimos en nuestro objeto municipio creamos las opciones
+                    $('select#municipio_id').append("<option value=\""+municipio[i].id+"\">"+municipio[i].nombre+"<\/option>");
+                    // municipio[i].id = Contiene el id del municipio
+                    // municipio[i].municipios = Contiene el nombre del municipio
+                });
+            }
+        })
+    });
+
+    $("#municipio_id").change(function(event) {
+        var municipio_id = $("#municipio_id option:selected").val();  //obtenemos el id del municipio que se mantiene seleccionado
+        
+        //Por medio de AJAX consultamos la ruta creada en laravel llamada municipios la cual recibe el id del país
+        $.ajax({
+            url: "<?php echo URL::to('admin/despachos_lista'); ?>",
+            type: 'POST',
+            data: 'municipio_id='+municipio_id, //enviamos el id
+            dataType: 'json',
+            success: function(despacho){
+                $('select#despacho_id').html('');
+                $('select#despacho_id').append($('<option></option>').text('Seleccione un despacho').val('')); 
+                //recorremos con el metodo each el objeto
+                $.each(despacho, function(i) {
+                    //Con los parametros que recibimos en nuestro objeto despacho creamos las opciones
+                    $('select#despacho_id').append("<option value=\""+despacho[i].id+"\">"+despacho[i].nombre+"<\/option>");
+                    // despacho[i].id = Contiene el id del despacho
+                    // despacho[i].despachos = Contiene el nombre del despacho
+                });
+            }
+        })
+    });
+});
+
+//date picker start
+
+if (top.location != location) {
+    top.location.href = document.location.href ;
+}
+$(function(){
+    window.prettyPrint && prettyPrint();
+    $('.default-date-picker').datepicker({
+        format: 'yyyy-mm-dd'
+    });
+    $('.dpYears').datepicker();
+    $('.dpMonths').datepicker();
+
+
+    var startDate = new Date(2012,1,20);
+    var endDate = new Date(2012,1,25);
+    $('.dp4').datepicker()
+        .on('changeDate', function(ev){
+            if (ev.date.valueOf() > endDate.valueOf()){
+                $('.alert').show().find('strong').text('The start date can not be greater then the end date');
+            } else {
+                $('.alert').hide();
+                startDate = new Date(ev.date);
+                $('#startDate').text($('.dp4').data('date'));
+            }
+            $('.dp4').datepicker('hide');
+        });
+    $('.dp5').datepicker()
+        .on('changeDate', function(ev){
+            if (ev.date.valueOf() < startDate.valueOf()){
+                $('.alert').show().find('strong').text('The end date can not be less then the start date');
+            } else {
+                $('.alert').hide();
+                endDate = new Date(ev.date);
+                $('.endDate').text($('.dp5').data('date'));
+            }
+            $('.dp5').datepicker('hide');
+        });
+
+    // disabling dates
+    var nowTemp = new Date();
+    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+
+    var checkin = $('.dpd1').datepicker({
+        onRender: function(date) {
+            return date.valueOf() < now.valueOf() ? 'disabled' : '';
+        }
+    }).on('changeDate', function(ev) {
+            if (ev.date.valueOf() > checkout.date.valueOf()) {
+                var newDate = new Date(ev.date)
+                newDate.setDate(newDate.getDate() + 1);
+                checkout.setValue(newDate);
+            }
+            checkin.hide();
+            $('.dpd2')[0].focus();
+        }).data('datepicker');
+    var checkout = $('.dpd2').datepicker({
+        onRender: function(date) {
+            return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+        }
+    }).on('changeDate', function(ev) {
+            checkout.hide();
+        }).data('datepicker');
+});
+
+//date picker end
+
+</script>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layouts.base', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
